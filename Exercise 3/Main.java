@@ -4,25 +4,22 @@ public class Main {
     private static Scanner ip = new Scanner(System.in);
     private static VehicleManager vehicleManager = null;
     public static void  main(String[] args) {                 
-        Menu();
-    }
-
-    private static void Menu(){
         int choose;
-        for (;;) {
-            do {
-                System.out.println("\n===========================================Menu chuc nang===========================================\n");
-                System.out.println("\n1. Nhap cac xe");
-                System.out.println("\n2. Xuat ra cac xe");
-                System.out.println("\n3. Xuat ra cac xe moi san xuat");
-                System.out.println("\n4. Tinh tong gia tri cac xe");
-                System.out.println("\n5. Tinh gia tri trung binh so dam da di tren cac loai xe co thong so nay");
-                System.out.println("\n6. Thoat chuong trinh");
-                System.out.println("Bam so de chon (1/2/3/4/5/6): ");
-                choose = ip.nextInt();
-                Process(choose);
-            } while ((choose < 1) || (choose > 6));
-        }
+        do{
+            System.out.println("\n===========================================Menu chuc nang===========================================\n");
+            System.out.println("\n1. Nhap cac xe");
+            System.out.println("\n2. Xuat ra cac xe");
+            System.out.println("\n3. Xuat ra cac xe moi san xuat");
+            System.out.println("\n4. Tinh tong gia tri cac xe");
+            System.out.println("\n5. Tinh gia tri trung binh so dam da di tren cac loai xe co thong so nay");
+            System.out.println("\n6. Thoat chuong trinh");
+            System.out.println("Bam so de chon (1/2/3/4/5/6): ");
+            choose = ip.nextInt();
+            ip.nextLine();
+
+            System.out.println();
+            Process(choose);
+        } while ((choose != 6));
     }
 
     private static void Process(int choose){

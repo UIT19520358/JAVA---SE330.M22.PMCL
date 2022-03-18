@@ -40,7 +40,9 @@ public class Truck extends Vehicle {
         System.out.println("\nNhap mau xe tai: ");
         color = ip.nextLine();
         System.out.println("\nNhap bien so xe: ");
-        plateNumber = ip.nextLine();
+        plateNumber = ip.nextLine();        
+        System.out.println("\nNhap trong luong xe: ");
+        loadCapacity = ip.nextLine();
         do{
             System.out.println("\nNhap nam san xuat: (>1990)");
             year = ip.nextInt();} while(year<1990);
@@ -55,8 +57,6 @@ public class Truck extends Vehicle {
 
         System.out.println("\nNhap tong so mile da di: ");
         mileage = ip.nextInt();
-        System.out.println("\nNhap trong luong xe: ");
-        loadCapacity = ip.nextLine();
         return this;
     }
 
