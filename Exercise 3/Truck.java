@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Truck extends Vehicle {
 
@@ -35,8 +36,10 @@ public class Truck extends Vehicle {
 
     @Override
     public Vehicle Input() {
-        System.out.println("\nNhap kieu xe tai: ");
-        model = ip.nextLine();
+        String model_check = "^[a-zA-Z0-9]*$";
+        do{
+            System.out.println("\nNhap kieu xe hoi: ");
+            model = ip.nextLine();} while (!Pattern.matches(model_check, model));
         System.out.println("\nNhap mau xe tai: ");
         color = ip.nextLine();
         System.out.println("\nNhap bien so xe: ");

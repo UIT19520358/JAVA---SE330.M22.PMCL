@@ -34,57 +34,56 @@ public class Main {
             n = ip.nextInt();
             vehicles = new Vehicle[n];
 
-        for (int i = 0; i < n; i++) {
-            System.out.println("\nNhap thong tin xe thu " + (i + 1));
-            System.out.print("\nNhap loai xe:\n1. Bicycle\n2. Bike\n3. Car\n4. Truck\n ");            
-            int option; 
-            do {
-                System.out.println("Bam so đe chon (1/2/3/4): ");
-                option = ip.nextInt();
-            } while ((option < 1) || (option > 4));
+            for (int i = 0; i < n; i++) {
+                System.out.println("\nNhap thong tin xe thu " + (i + 1));
+                System.out.print("\nNhap loai xe:\n1. Bicycle\n2. Bike\n3. Car\n4. Truck\n ");            
+                int option; 
+                do {
+                    System.out.println("Bam so đe chon (1/2/3/4): ");
+                    option = ip.nextInt();
+                } while ((option < 1) || (option > 4));
             
-            final VehicleType vehicleType;
-            switch (option) {
-                case 1:
-                    vehicleType = VehicleType.Bicycle;            
-                    vehicles[i] = Vehicle.createVehicle(vehicleType);
-                    bicyclePrice += vehicles[i].getPrice();
+                final VehicleType vehicleType;
+                switch (option) {
+                    case 1:
+                        vehicleType = VehicleType.Bicycle;            
+                        vehicles[i] = Vehicle.createVehicle(vehicleType);
+                        bicyclePrice += vehicles[i].getPrice();
                     break;
-                case 2:
-                    vehicleType = VehicleType.Bike;            
-                    vehicles[i] = Vehicle.createVehicle(vehicleType);
-                    bikePrice += vehicles[i].getPrice();
-                    bikeMileage +=vehicles[i].getMileage();
-                    x++;
+                    case 2:
+                        vehicleType = VehicleType.Bike;            
+                        vehicles[i] = Vehicle.createVehicle(vehicleType);
+                        bikePrice += vehicles[i].getPrice();
+                        bikeMileage +=vehicles[i].getMileage();
+                        x++;
                     break;
-                case 3:
-                    vehicleType = VehicleType.Car;            
-                    vehicles[i] = Vehicle.createVehicle(vehicleType);
-                    carPrice += vehicles[i].getPrice();
-                    carMileage +=vehicles[i].getMileage();
-                    y++;
+                    case 3:
+                        vehicleType = VehicleType.Car;            
+                        vehicles[i] = Vehicle.createVehicle(vehicleType);
+                        carPrice += vehicles[i].getPrice();
+                        carMileage +=vehicles[i].getMileage();
+                        y++;
                     break;
-                case 4:
-                    vehicleType = VehicleType.Truck;            
-                    vehicles[i] = Vehicle.createVehicle(vehicleType);
-                    truckPrice += vehicles[i].getPrice();
-                    truckMileage +=vehicles[i].getMileage();
-                    z++;
+                    case 4:
+                        vehicleType = VehicleType.Truck;            
+                        vehicles[i] = Vehicle.createVehicle(vehicleType);
+                        truckPrice += vehicles[i].getPrice();
+                        truckMileage +=vehicles[i].getMileage();
+                        z++;
                     break;
+                }
             }
-        }
-                break;
+            break;
             case 2:
                 if (vehicles == null) {
                     System.out.println("Chua nhap danh sach xe");
                 } else displayVehicle();
-                break;
+            break;
             case 3:
                 if (vehicles == null) {
                     System.out.println("Chua nhap danh sach xe");
-                } else
-                NewCar();
-                break;
+                } else NewCar();
+            break;
             case 4:
             // 4. Tong gia tri cac xe
                 if (vehicles == null) {
@@ -92,7 +91,7 @@ public class Main {
                 } else
                 System.out.println("\n-------------Tong gia tri cac xe-------------\n1. Xe dap: " + bicyclePrice + "\n2. Xe may: " + bikePrice 
                 + "\n3. Xe hoi: " + carPrice + "\n4. Xe tai: " + truckPrice);
-                break;
+            break;
             case 5:
             // 5. Gia tri mile trung binh cac loai xe la
                 if (vehicles == null) {
@@ -100,11 +99,11 @@ public class Main {
                 } else
                 System.out.println("\n-------------Gia tri mile trung binh cac loai xe-------------\n1. Xe may: " + bikeMileage/x 
                 + "\n2. Xe hoi: " + carMileage/y + "\n3. Xe tai: " + truckMileage/z);
-                break;
+            break;
             case 6:
                 System.out.println("Ban da ket thuc chuong trinh!");
                 System.exit(0);
-                break;
+            break;
             default:
         }
     }
@@ -120,11 +119,11 @@ public class Main {
     // 3. Xuat ra cac xe moi san xuat: nam sx <= nam ht - 3
     static void NewCar(){
         Calendar instance = Calendar.getInstance();
-        int recent = instance.get(Calendar.YEAR);
-        recent = recent - 3;        
+        int recent = instance.get(Calendar.YEAR);  
         System.out.println("\n-----------------Danh sach cac xe moi san xuat-----------------\n");
         for (int i = 0; i < vehicles.length; i++) {
-            if (vehicles[i].year <= recent)
+            System.out.println("\nThong tin xe thu " + (i + 1));
+            if (vehicles[i].year >= recent - 3) // 2019 >= 2022 - 3; 2020 >= 2022 - 3
             System.out.println("\n" + vehicles[i]);
         }
     }
